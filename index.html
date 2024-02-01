@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Signika:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="node_modules/eins-modal/dist/css/eins-modal.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="node_modules/eins-modal/dist/js/eins-modal.min.js"></script> -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const changeLanguageButton = document.getElementById("changeLanguage");
+            
+            // Define los objetos de traducción para cada idioma
+            const translations = {
+                es: {
+                    language:"Mudar para português",
+                    aboutMe:"Sobre Mi",
+                    start: "Inicio",
+                    briefcase: "Portafolio",
+                    introduction: "Mi nombre es Ernesto Curutchet soy Full-Stack Developer enfocado a aplicaciones y desarrollo web. Soy apasionado autodidacta y estudio contenido relacionado a programación siempre que puedo. Amo a mi esposa e hijo con locura, me gusta la música y soy amante del buen cine y los videojuegos.",
+                    workExperience: " He trabajado en diferentes proyectos web con diversas tecnologías. Algunos de ellos fueron Proyectos Individuales y un proyecto grupal simulando un entorno activo de trabajo para el Bootcamp de Soy Henry, enfocado más al Desarrollo de aplicaciones web. Me mantengo siempre actualizado ya que me gusta aprender cosas nuevas.",
+                    // Agrega más traducciones según sea necesario
+                },
+                pt: {
+                    language:"Switch to English",
+                    aboutMe:"Sobre Mim",
+                    start: "Começar",
+                    briefcase: "Portfólio",
+                    introduction: "Meu nome é Ernesto Curutchet e sou Desenvolvedor Full-Stack focado em aplicações e desenvolvimento web. Sou autodidata e estudo conteúdos relacionados à programação sempre que posso. Amo minha esposa e filho loucamente, gosto de música e sou amante de bons filmes e videogames.",
+                    workExperience: " Trabalhei em diferentes projetos web com diversas tecnologias. Alguns deles foram Projetos Individuais e um projeto em grupo simulando um ambiente ativo de trabalho para o Bootcamp da Soy Henry, focado mais no desenvolvimento de aplicações web. Eu me mantenho sempre atualizado, pois gosto de aprender coisas novas.",
+                    // Agrega más traducciones según sea necesario
+                },
+                en: {
+                    language:"Cambiar a Español",
+                    aboutMe:"About Me",
+                    start: "Start",
+                    briefcase: "Briefcase",
+                    introduction: "My name is Ernesto Curutchet and I am a Full-Stack Developer focused on applications and web development. I am a passionate self-learner and study programming-related content whenever I can. I love my wife and son madly, enjoy music, and am a fan of good movies and video games.",
+                    workExperience: " I have worked on various web projects with different technologies. Some of them were individual projects, and a group project simulating an active work environment for the Soy Henry Bootcamp, more focused on web application development. I always stay updated as I enjoy learning new things.",
+                    // Agrega más traducciones según sea necesario
+                },
+            };
+        
+            // Función para cambiar el idioma
+            function changeLanguage(language) {
+        document.querySelectorAll('[data-translate]').forEach(element => {
+            const translationKey = element.getAttribute('data-translate');
+            if (translationKey && translations[language][translationKey]) {
+                if (element.childNodes.length === 1 && element.firstChild.nodeType === Node.TEXT_NODE) {
+                    // Verifica si el elemento es un nodo de texto
+                    element.firstChild.textContent = translations[language][translationKey];
+                } else {
+                    // Si no es un nodo de texto, asigna el texto directamente
+                    element.textContent = translations[language][translationKey];
+                }
+            }
+        });
+    }
+    
+        
+            // Manejador de eventos para el botón de cambio de idioma
+            changeLanguageButton.addEventListener("click", function () {
+                const currentLanguage = document.documentElement.lang || 'en'; // Obtén el idioma actual o establece uno predeterminado
+                const nextLanguage = currentLanguage === 'es' ? 'pt' : (currentLanguage === 'pt' ? 'en' : 'es');
+                document.documentElement.lang = nextLanguage; // Establece el idioma en el atributo lang del elemento HTML
+                changeLanguage(nextLanguage);
+            });
+        
+            // Inicializa el idioma al cargar la página
+            const initialLanguage = document.documentElement.lang || 'en'; // Obtén el idioma actual o establece uno predeterminado
+            changeLanguage(initialLanguage);
+        });
+        </script>
+</head>
+<body>
+
+<header>
+<div class="navbar container" >
+        <nav>
+            <ul>
+                <li ><a data-translate="start" href="#inicio">Inicio</a></li>
+                <li ><a data-translate="briefcase" href="#briefcase">Portafolio</a></li>
+                <li ><a data-translate="aboutMe" href="#about-me">Sobre mi</a></li>
+            </ul>
+        </nav>
+        <button id="changeLanguage" data-translate="language">Idioma Español</button>
+    </div>
+    <div>
+     </div>
+</header>
+
+
+<section>
+ <div class="hero" id="inicio">
+     <div class="container">  
+    <img src="./img/fondo-desktop.jpg" alt="">
+ </div>
+</div>
+ <div class="profile">
+    <div class="square"></div>
+    <div class="circle-trans"></div>
+    <div class="circle"></div>
+    <div class="profile-img"><img src="./img/WhatsApp Image 2022-04-30 at 17.27.25.jpeg" alt=""></div>
+    <div class="square-text">ERNESTO CURUTCHET</div>
+    <div class="square-text-2"><span>FULL-STACK WEB DEVELOPER</span></div>
+    <div class="contact-icon">
+        <a href="https://github.com/Erne5" target="_blank"><img src="./img/github.svg" alt=""></a>
+        <a href="https://www.linkedin.com/in/erne5"target="_blank"><img src="./img/linkedin.svg" alt=""></a>
+        <a id="messageButton" href="mailto:erne24.88@gmail.com"><img src="./img/message.svg" alt=""></a>
+    </div>
+    <div class="square-text-3"><a data-translate="aboutMe" href="#about-me"></span>Sobre Mi</a></div>
+ </div>
+ 
+</section>
+<div id="briefcase"></div>
+
+<section class="about" id="about-me">
+    <div class="about-flex container">
+        <div class="about-info translate" >
+            <p data-translate="introduction">Mi nombre es Ernesto Curutchet soy Full-Stack Developer enfocado a aplicaciones y desarrollo web. Soy apasionado autodidacta y estudio contenido relacionado a programación siempre que puedo. Amo a mi esposa e hijo con locura, me gusta la música y soy amante del buen cine y los videojuegos.</p>
+            <p data-translate="workExperience"><br>He trabajo en diferentes proyectos web con diversas tecnologías. Algunos de ellos fueron Proyectos Individuales y un proyecto grupal simulando un entorno activo de trabajo para el Bootcamp de Soy Henry, enfocado más al Desarrollo de aplicaciones web. Me mantengo siempre actualizado ya que me gusta aprender cosas nuevas.</p>
+        </div>
+        <div class="social">
+            <a href="https://github.com/Erne5" target="_blank"><img src="./img/github.svg" alt=""></a>
+            <a href="https://www.linkedin.com/in/erne5" target="_blank"><img src="./img/linkedin.svg" alt=""></a>
+            <!-- <a href="https://www.youtube.com/channel/UCrBj22EAjbwih60lqZI-zDA/featured"target="_blank"><img src="./img/youtube.svg" alt=""></a> -->
+            <a data-modal-id="message"><img src="./img/message.svg" alt=""></a>
+        </div>
+    </div>
+    <div class="icon-elements">         
+        <div>
+            <a href="https://github.com/Erne5" target="blank">
+           <img src="./img/github-icon.png" alt=""> 
+           <span>/ Ver código de este portafolio desde el repositorio</span></a>
+       </div>
+     
+    </div>
+</section>
+
+<section class="briefcase">
+    <div class="briefcase-section container">
+        <h2 data-es="Briefcase" data-pt="Portfólio" data-en="Briefcase">Briefcase |</h2>
+            <!-- <div class="briefcase-grid">
+            <div><a data-modal-id="pw-portafolio"><img src="./img/pagina-web-portafolio2022.png" alt=""></a></div>
+            <div><a data-modal-id="pw-ropbodactav2"><img src="./img/pagina-web-robodactav2.jpg" alt=""></a></div>
+            <div><a data-modal-id="pw-dacorp"><img src="./img/pagina-web-dacorp.png" alt=""></a></div>
+            <div><a data-modal-id="pw-ionic"><img src="./img/pagina-web-ionic.jpg" alt=""></a></div>
+            <div><a data-modal-id="pw-repar"><img src="./img/pagina-web-repar.jpg" alt=""></a></div>
+            <div><a data-modal-id="pw-neuroPamama"><img src="./img/pagina-web-neuroPanama.jpg" alt=""></a></div>
+
+        </div> -->
+    </div>
+</section>
+
+<section class="skills">
+    <div class="skill container"> 
+        <div class="knowledge-part">
+            <h2 data-es="Conocimientos" data-pt="Conhecimentos" data-en="Knowledge">Knowledge |</h2>
+            <div class="knowledge">
+                <div>
+                    <img src="./img/html-icon.png" alt="">
+                    <h3>HTML</h3>
+                </div>
+                <div>
+                    <img src="./img/css-icon.png" alt="">
+                    <h3>CSS</h3> 
+                </div>
+                <div><img src="./img/js-icon.png" alt="">
+                    <h3>Javascript</h3>
+                </div>
+                <div><img src="./img/typescript-def.png" alt="">
+                    <h3>Typescript</h3>
+                </div>
+                <div><img src="./img/4990671.png" alt="">
+                    <h3>Python</h3>
+                </div>
+                <!-- <div><img src="./img/wordpress-icon.png" alt="">
+                    <h3>Wordpress</h3>
+                </div> -->
+            </div>
+        </div>
+
+
+        <div class="tools-part">
+            <h2><span>Dev Tools |</span> Herramientas</h2>
+            <div class="tools">
+                <div>
+                    <img src="./img/github-icon.png" alt="">
+                    <h3>GitHub</h3>
+                </div>
+                <div>
+                    <img src="./img/vsc-icon.png" alt="">
+                    <h3>Visual Studio</h3>
+                </div>
+                <div>
+                    <img src="./img/git-icon.png" alt="">
+                    <h3 >GIT</h3>
+                </div>
+               <div> 
+                   <img src="./img/npm-icon.png" alt="">
+                    <h3>NPM</h3>
+                </div>
+                <div>
+                    <img src="./img/webpack-icon.png" alt="">
+                    <h3>Webpack</h3>
+                </div>
+                <!-- <div>
+                    <img src="./img/ga-icon.png" alt="">
+                    <h3>Analytics</h3>
+                </div> -->
+                <div>
+                    <img src="./img/gsc-icon.png" alt="">
+                    <h3>Search Console</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<footer>
+    <p>ⓒ 2020 Copyright | Designed by N/CODER</p>
+</footer>
+
+</body>
+
+</html>
+<!-- Modal section -->
+
+<!-- <div id="myModal" class="eins-modal" data-options="openTransition: expandIn; openDuration: 200;">
+    <div class="eins-modal-content">
+      <div class="eins-modal-close"></div>
+  
+      EJEMPLO DE PRUEBA
+      
+      <button class="eins-modal-close-button">OK</button>
+    </div>
+  </div> -->
+<!-- Modal section -->
+
+<!-- <div id="pw-portafolio" class="eins-modal" data-options="openTransition: expandIn; openDuration: 200;">
+    <div class="eins-modal-content">
+        <div class="eins-modal-close"></div>
+            <div class="pw-content">
+                <div class="eins-modal-preview">
+                    <img src="/img/2pagina-web-portafolio2022.png" alt="">
+                </div>
+                <div class="eins-modal-text">
+                    <p>Portafolio Web Personal, Construido con HTML, CSS Y JS. <br>Se usó librerias de npm y se optimizó la página con webpack. Se uso estructura SEO básica para la semántica en buscadores
+                    </p>
+                    <p> Se documentó el proceso paso a paso de como crear este portafolio desde cero, puedes ver el video desde el enlace del canal de youtube.
+                    </p>
+                    <p>También puedes acceder a él desde el repositorio de github</p>
+                    <div class="eins-modal-text-2">
+                        <span>ENLACE:</span><a href="/">https://rajdayoda.com</a>
+                    </div>
+                    <div class="eins-modal-text-3">
+                        <span>Tecnologías Usadas:</span>
+                        <div class="eins-modal-tec">
+                            <img src="/img/html-icon.png" alt="">
+                            <img src="/img/css-icon.png" alt="">
+                            <img src="/img/js-icon.png" alt="">
+                            <img src="/img/npm-icon.png" alt="">
+                            <img src="/img/webpack-icon.png" alt="">
+                            <img src="/img/seo-icon.png" alt="">
+                            <div>
+                                <a href="https://www.youtube.com/watch?v=s-oY-1kRAcA" target="blank">
+                               <img src="./img/youtube.icon.png" alt=""> 
+                               <span>/ Ver el paso a paso de como se construyó este portafolio </span></a>
+                           </div>
+                           <div>
+                               <a href="https://github.com/rajdayoda/portafolio2022" target="blank">
+                              <img src="./img/github-icon.png" alt=""> 
+                              <span>/ Ver código de este portafolio desde el repositorio</span></a>
+                          </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="pw-ropbodactav2" class="eins-modal" data-options="openTransition: expandIn; openDuration: 200;">
+    <div class="eins-modal-content">
+        <div class="eins-modal-close"></div>
+            <div class="pw-content">
+                <div class="eins-modal-preview">
+                    <img src="/img/2pagina-web-robodacta.png" alt="">
+                </div>
+                <div class="eins-modal-text">
+                    <p>Robodacta Tienda de Robótica didática México. Actualización 2022 
+                    E-commerce de artículos de robótica para proyectos de ingeniería
+                    motores, sensores, tarjetas, kit de robótica y más.</p>
+                    <p>Actualmente se encuentra en desarrollo con funcionalidad de puntos 
+                        de recompensa, emails personalizados en los pedidos. Y se implementarán aplicaciones de 
+                        seguimiento para evaluar movimiento en ventas. Así como estructura SEO para 
+                        posicionamiento en buscadores.
+                    </p>
+                    <div class="eins-modal-text-2">
+                        <span>ENLACE:</span><a href="https://tienda.robodacta.mx"target="_blank">https://tienda.robodacta.mx</a>
+                    </div>
+                    <div class="eins-modal-text-3">
+                        <span>Tecnologías Usadas:</span>
+                        <div class="eins-modal-tec">
+                            <img src="/img/wordpress-icon.png" alt="">
+                            <img src="/img/woo-icon.png" alt="">
+                            <img src="/img/css-icon.png" alt="">
+                            <img src="/img/seo-icon.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="pw-dacorp" class="eins-modal" data-options="openTransition: expandIn; openDuration: 200;">
+    <div class="eins-modal-content">
+        <div class="eins-modal-close"></div>
+            <div class="pw-content">
+                <div class="eins-modal-preview">
+                    <img src="/img/2pagina-web-dacorp.png" alt="">
+                </div>
+                <div class="eins-modal-text">
+                    <p> Dacorp Group- Centro autorizado Panasonic.<br> Creación de página coorporativa.<br>Es una empresa que ofrece servicios de instalación, mantenimiento y venta de repuestos Panasonic.  </p>
+                    <p> Optimización con SEO e implementación de SEM para posicionamiento</p>
+                    <div class="eins-modal-text-2">
+                        <span>ENLACE:</span><a href="https://dacorp.net"target="_blank">https://dacorp.net</a>
+                    </div>
+                    <div class="eins-modal-text-3">
+                        <span>Tecnologías Usadas:</span>
+                        <div class="eins-modal-tec">
+                            <img src="/img/html-icon.png" alt="">
+                            <img src="/img/css-icon.png" alt="">
+                            <img src="/img/js-icon.png" alt="">
+                            <img src="/img/seo-icon.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="pw-ionic" class="eins-modal" data-options="openTransition: expandIn; openDuration: 200;">
+    <div class="eins-modal-content">
+        <div class="pw-content">
+            <div class="eins-modal-close"></div>    
+            <div class="eins-modal-preview"><img src="/img/2pagina-web-ionic.png" alt="">
+            </div>
+            <div class="eins-modal-text">
+                <p> Página corporativa de Ionic Pro- Página de lanzamiento de producto Ionic Uv Purifier.  </p>
+                <p> Un purificador por UV (luz ultravioleta) que se coloca en los aires acondicionados y elimina virus y bacterias presentes en el ambiente</p>
+                <div class="eins-modal-text-2">
+                    <span>Enlace:</span> <a href="https://ionicpro.net"target="_blank">https://ionicpro.net</a>
+                </div>
+                <div class="eins-modal-text-3">
+                    <span>Tecnologías Utilizadas:</span> 
+                    <div class="eins-modal-tec">
+                        <img src="/img/html-icon.png" alt="">
+                        <img src="/img/css-icon.png" alt="">
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div id="pw-repar" class="eins-modal" data-options="openTransition: expandIn; openDuration: 200;">
+    <div class="eins-modal-content">
+        <div class="pw-content">
+            <div class="eins-modal-close"></div>    
+            <div class="eins-modal-preview"><img src="/img/2pagina-web-repar.png" alt="">
+            </div>
+            <div class="eins-modal-text">
+                <p>Repar Ind. Sa, Página coorporativa para empresa panameña enfocada en reparaciónes y sistemas industriales.  </p>
+                <p> Tienen dos ramas importantes. Instalación de Energía Solar e Instalación, mantenimiento y reparación de  Tecles y montacargas.</p>
+                <div class="eins-modal-text-2">
+                    <span>Enlace:</span> <a href="https://reparind.com"target="_blank">https://reparind.com</a>
+                </div>
+                <div class="eins-modal-text-3">
+                    <span>Tecnologías Utilizadas:</span> 
+                    <div class="eins-modal-tec">
+                        <img src="/img/wordpress-icon.png" alt="">
+                        <img src="/img/css-icon.png" alt="">
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div id="pw-neuroPamama" class="eins-modal" data-options="openTransition: expandIn; openDuration: 200;">
+    <div class="eins-modal-content">
+        <div class="pw-content"> 
+            <div class="eins-modal-close"></div>   
+            <div class="eins-modal-preview"><img src="/img/2pagina-web-neuroPanama.png" alt="">
+            </div>
+            <div class="eins-modal-text">
+                <p>NeuroPanama, página coorporativa de la empresa en colaboración con otro diseñador web.   </p>
+                <p>Clínica enfocada a la neuropsicología. Tratamientos, asesorias y orientación para mejorar el funcionamiento cognitivo de la persona. </p>
+                <div class="eins-modal-text-2">
+                    <span>Enlace:</span> <a href="https://clinicaneuropanama.com/"target="_blank">https://clinicaneuropanama.com</a>
+                </div>
+                <div class="eins-modal-text-3">
+                    <span>Tecnologías Utilizadas:</span> 
+                    <div class="eins-modal-tec">
+                        <img src="/img/wordpress-icon.png" alt="">
+                        <img src="/img/css-icon.png" alt="">
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div> -->
+
+
+
+
+<!-- <div id="message" class="eins-modal" data-options="openTransition: expandIn; openDuration: 200;">
+    <div class="eins-modal-content">
+        <div class="eins-modal-close"></div>
+        <form  class="form"action="https://formspree.io/f/mwkyvalb"method="POST">
+            <label>Tu Correo Electrónico:
+            <input type="email" name="_replyto">
+            </label>
+
+            <label>Tu Mensaje:
+            <textarea name="message"></textarea>
+            </label>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</div> -->
+
+
+
+
+
